@@ -1,0 +1,95 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Tema oscuro fijo */
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-height: 100vh;
+  background-color: #242424 !important; 
+  color: rgba(255, 255, 255, 0.87) !important; 
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+input {
+  padding: 0.7em 1em;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #1f1f1f;
+  color: white;
+  outline: none;
+  font-size: 1em;
+  width: 220px;
+}
+
+input:focus {
+  border-color: #eba82c;
+}
+
+button {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  border: 1px solid #333 !important;
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  box-shadow: 0 0 5px orange,
+  0 0 5px orange;
+  background-color: #2a2a2a !important;
+  border-color: #d19e3f !important;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+.card-clima {
+  background: #1b1b1b;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+.card-clima h2 {
+  margin-top: 0;
+  color: #ffffff;
+}
+
+.card-clima p {
+  margin: 0.3rem 0;
+  color: #cccccc;
+}
+
+#fondo-dinamico {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.3;
+  pointer-events: none;
+}
