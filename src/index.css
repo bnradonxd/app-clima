@@ -1,13 +1,21 @@
-
 :root {
-  
   font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif; 
   line-height: 1.6;
   font-weight: 400;
 
+  --color-bg: #121212;
+  --color-bg-soft: #1A1A1A;
+  --color-bg-card: #252422;
 
-  color: #E0E0E0; 
-  background-color: #121212; 
+  --color-text-strong: #FFFFFF;
+  --color-text-normal: #E0E0E0;
+  --color-text-soft: #e6e5e5;
+
+  --color-title: #f7eac5;
+  --color-accent: #FFC300;
+  --color-accent-soft: #EBA82C;
+
+  --color-border-soft: #333;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,9 +26,8 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #121212; 
-  color: #E0E0E0; 
-  background: radial-gradient(circle at top, #1A1A1A 0%, #121212 60%);
+  background: radial-gradient(circle at top, var(--color-bg-soft) 0%, var(--color-bg) 60%);
+  color: var(--color-text-normal);
 }
 
 #root {
@@ -28,49 +35,51 @@ body {
   margin: 0 auto;
   padding: 2.5rem 1.5rem; 
   text-align: center;
-  min-height: 100vh; 
+  color: var(--color-title);
+  min-height: 100vh;
 }
 
-
+/* Título */
 h1 {
   font-size: 3.8em; 
   margin-bottom: 2rem;
-  color: #FFC300; 
+  color: var(--color-text-strong);
   letter-spacing: 3px;
   font-weight: 900;
-  
-  text-shadow: 0 0 15px rgba(255, 195, 0, 0.7), 0 0 5px rgba(255, 195, 0, 0.4); 
+  text-shadow: 0 0 15px rgba(255, 195, 0, 0.7), 0 0 5px rgba(255, 195, 0, 0.4);
 }
 
-
+/* Input */
 input {
   padding: 0.9em 1.4em;
-  border-radius: 50px; 
-  border: 2px solid #333; 
-  background: #181818; 
-  color: #E0E0E0;
+  border-radius: 50px;
+  border: 2px solid var(--color-border-soft);
+  background: #181818;
+  color: var(--color-text-strong);
   outline: none;
   font-size: 1.1em;
-  width: 280px; 
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: 280px;
+  transition: all 0.3s ease;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 input:focus {
-  border-color: #FFC300;
-  box-shadow: 0 0 0 3px rgba(255, 195, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.4);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(255, 195, 0, 0.3),
+              inset 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
+/* Botón */
 button {
-  background-color: #FFC300; 
-  color: #121212; 
+  background-color: var(--color-accent);
+  color: var(--color-bg);
   border: none;
   font-weight: 800;
   padding: 0.9em 2em;
-  border-radius: 50px; 
+  border-radius: 50px;
   font-size: 1.1em;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s ease;
   letter-spacing: 0.5px;
 }
 
@@ -83,33 +92,32 @@ button:active {
   transform: scale(0.97);
 }
 
+/* Tarjetas del clima */
 .card-clima {
-  background: #1E1E1E; 
+  background: var(--color-bg-card);
   padding: 2rem;
-  margin-top: 0; 
   border-radius: 18px; 
-  
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
-  height: 100%; 
-  text-align: left; 
-  border: 1px solid #333; 
-  transition: transform 0.3s ease;
+  border: 1px solid var(--color-border-soft);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  text-align: center; 
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .card-clima:hover {
-    transform: translateY(-5px); 
-    border-color: #FFC300;
+  transform: translateY(-5px);
+  border-color: var(--color-accent);
+  
 }
 
 .card-clima h2 {
   margin-top: 0;
-  color: #FFC300; 
+  color: var(--color-accent);
   text-align: center;
 }
 
-.card-clima h4 {
-  color: #F0F0F0; 
-  border-bottom: 2px solid #333; 
+.card-clima h6 {
+  color: var(--color-text-strong);
+  border-bottom: 2px solid var(--color-border-soft);
   padding-bottom: 0.7rem;
   margin-bottom: 1.5rem;
   font-size: 1.3em;
@@ -118,21 +126,20 @@ button:active {
 
 .card-clima p {
   margin: 1.2rem 0;
-  color: #B0B0B0; 
-  line-height: 1.5;
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center;
+  color: var(--color-text-soft);
+  display: flex;
+  justify-content: center;
+
 }
 
 .card-clima p strong {
-  color: #FFFFFF; 
-  font-weight: 700;
+  color: var(--color-text-strong);
 }
 
+/* Error */
 .error-message {
-  background-color: #381a1a; 
-  color: #ffcccc; 
+  background-color: #381a1a;
+  color: #ffd7d7;
   padding: 1.2rem;
   border-radius: 10px;
   border: 1px solid #ff4444;
@@ -144,11 +151,11 @@ button:active {
   box-shadow: 0 0 10px rgba(255, 68, 68, 0.3);
 }
 
-/* 5. Fondo Dinámico - Se mantiene igual, pero con más oscuridad de base */
+/* Fondo dinámico */
 #fondo-dinamico {
   position: fixed;
   inset: 0;
   z-index: -1;
-  opacity: 0.35; 
+  opacity: 0.35;
   pointer-events: none;
 }

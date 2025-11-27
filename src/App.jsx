@@ -34,10 +34,10 @@ function App() {
         setClima(data)
       
       } else if (data.cod == 404 || data.cod == "404") {
-        setError(`⚠️ Ciudad "${ciudad}" no encontrada. Por favor, revisa el nombre.`);
+        setError(`No se encontró "${ciudad}". Por favor, revisa el nombre.`);
       
       } else {
-        setError(`⚠️ Error ${data.cod}: ${data.message || 'Error desconocido de la API.'}`);
+        setError(`Error ${data.cod}: ${data.message || 'Error desconocido de la API.'}`);
       }
 
     } catch (fetchError) {
@@ -51,7 +51,7 @@ function App() {
     <div className="App">
       {}
       <h1>
-        App Clima
+        ClimApp ☀️
       </h1>
       <SearchBar onSearch={busqueda}/>  
       
@@ -93,3 +93,4 @@ function App() {
 }
 
 export default App
+ 

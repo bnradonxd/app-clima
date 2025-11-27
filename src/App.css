@@ -1,5 +1,5 @@
 .App {
-  box-shadow: 0 0 50px rgba(235, 168, 44, 0.08); 
+  box-shadow: 0 0 50px #eba82c09; 
   border-radius: 16px;
   padding: 0; 
 }
@@ -62,5 +62,5 @@ hr {
   padding: 2em;
 }
 .read-the-docs {
-  color: #888;
+  color: #888888;
 }
