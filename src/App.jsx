@@ -4,6 +4,9 @@ import SearchBar from "./components/searchbar.jsx";
 import ClimaMain from "./components/clima/ClimaMain.jsx"
 import ClimaTemp from "./components/clima/climaTemp.jsx"
 import ClimaViento from "./components/clima/climaViento.jsx"
+import ClimaSol from "./components/clima/climaSol.jsx";
+
+
 
 function App() {
 
@@ -25,13 +28,14 @@ function App() {
     const APIKEY = import.meta.env.VITE_CLIMA_KEY;
 
     const URL_BASE = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${APIKEY}&units=metric&lang=es`
-
+    
     try {
       const response = await fetch(URL_BASE)
       const data = await response.json()
       
       if (data.cod == 200) {
         setClima(data)
+        console.log(data)
       
       } else if (data.cod == 404 || data.cod == "404") {
         setError(`No se encontró "${ciudad}". Por favor, revisa el nombre.`);
@@ -82,7 +86,11 @@ function App() {
             </div>
             
             <div className="col-12 col-md-6 mb-4">
-              <ClimaViento wind={clima.wind} />
+              <ClimaViento wind={clima.wind} visibility={clima.visibility} />
+            </div>
+
+            <div className="col-12 col-md-6 mb-4">
+                <ClimaSol sys={clima.sys} timezone={clima.timezone} />
             </div>
             
           </div>

@@ -1,7 +1,21 @@
 import IconosAnimados from "../iconosAnimados.jsx";
 
-function climaMain({clima}) {
 
+function climaMain({clima}) {
+  
+  function horaCiudad(timezone){
+    const horaActual = new Date();    
+
+    const horaMinutos= horaActual.getTimezoneOffset() * 60;
+    const utc = (horaActual.getTime() / 1000) + horaMinutos;
+    const horaCiudadSeg = utc + timezone;
+
+    const fechaCiudad = new Date(horaCiudadSeg * 1000);
+
+    return fechaCiudad;  
+    }
+
+    const horaFinal = horaCiudad(clima.timezone)
 
 return(
         
@@ -14,6 +28,16 @@ return(
         />
         
         <h6>{clima.sys.country}</h6>
+
+        <h3> 
+          {horaFinal.toLocaleTimeString([],{
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true
+        })}
+        
+        </h3>
+        
         <IconosAnimados iconCode={clima.weather[0].icon}/>
 
             {/* <img 
@@ -22,10 +46,14 @@ return(
             /> */}
             
             <h6 style={{ textTransform: "capitalize" }} >
-            {clima.weather[0].description} 
+            {clima.weather[0].description}
+           
       
       </h6>
 
+
+       <p>
+        </p>
      
       <p>🌡 Temperatura Actual : {clima.main.temp} °C</p>
        <p>🧊 Sensación Térmica : {clima.main.feels_like} °C</p>

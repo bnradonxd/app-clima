@@ -1,4 +1,4 @@
-function climaViento({ wind }) {
+function climaViento({ wind, visibility }) {
 
 
       const direccion = (deg) => {
@@ -15,6 +15,8 @@ return(
        <h4>Viento 💨</h4>
       <p>Velocidad: {wind.speed} m/s</p>
       <p>Dirección:  {wind.deg}° ({direccion(wind.deg)})</p>
+      <p>Visibilidad: {visibility / 1000} km</p>
+
 
       </div>
 );
